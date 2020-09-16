@@ -1,5 +1,5 @@
 import React from "react"
-
+import {Link} from "react-router-dom"
 const Header = () => {
   return (
     <section className="w3l-bootstrap-header">
@@ -15,30 +15,30 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <a className="nav-link" href="index.html">
+                <Link className="nav-link" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="about.html">
+              <Link className="nav-link" to="/about">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="services.html">
+              <Link className="nav-link" to="/services">
                   Services
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="contact.html">
+              <Link className="nav-link" to="/contact">
                   Contact
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="contact.html">
-                  Signup / Login
-                </a>
+              <Link className="nav-link" to="/login">
+                  Login / Signup
+                </Link>
               </li>
             </ul>
           </div>

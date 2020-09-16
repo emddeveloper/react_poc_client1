@@ -16804,3 +16804,6 @@ button.owl-next {
 .emd-carousel button.owl-next:focus,.emd-carousel button.owl-prev:focus{
   outline: none;
 }
+.progress-bar{
+  height:.3em
+}

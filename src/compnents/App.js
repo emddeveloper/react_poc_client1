@@ -5,7 +5,7 @@ import Header from "../assets/pages/Header"
 import $ from "jquery"
 import { Helmet } from "react-helmet"
 import Home from "../assets/pages/Home"
-import {BrowserRouter,Switch,Route} from "react-router-dom"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
 //router pages
 import Aboutpage from "../assets/pages/Aboutpage"
 import Servicepage from "../assets/pages/Servicepage"
@@ -24,9 +24,30 @@ const App = () => {
       <Helmet>
         <script src="../assets/js/owl.carousel.js" type="text/script"></script>
       </Helmet>
-      <Header />
-      <Home />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/about">
+            <Aboutpage />
+          </Route>
+          <Route path="/services">
+            <Servicepage />
+          </Route>
+          <Route path="/contact">
+            <Contactpage />
+          </Route>
+          <Route path="/login">
+            <Loginpage />
+          </Route>
+          <Route path="/signup">
+            <Signuppage />
+          </Route>
+        </Switch>
+        <Footer />
+      </BrowserRouter>
     </div>
   )
 }
