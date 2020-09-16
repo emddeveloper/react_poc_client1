@@ -16789,3 +16789,18 @@ button.owl-next {
 }
 
 /*# sourceMappingURL=style-starter.css.map */
+.owl-carousel.owl-loaded {
+  display: block;
+  margin-bottom: -10px;
+}
+.emd-carousel button.owl-next>span,.emd-carousel button.owl-prev>span {
+  width: 30px;
+  height: 30px;
+  background: #fffbfba1;
+  padding: 5px 15px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.emd-carousel button.owl-next:focus,.emd-carousel button.owl-prev:focus{
+  outline: none;
+}
