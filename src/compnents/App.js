@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import "../assets/css/style-starter.css"
 import Footer from "../assets/pages/Footer"
 import Header from "../assets/pages/Header"
@@ -12,20 +12,16 @@ import Servicepage from "../assets/pages/Servicepage"
 import Contactpage from "../assets/pages/Contactpage"
 import Loginpage from "../assets/pages/Loginpage"
 import Signuppage from "../assets/pages/Signuppage"
+import ForgotPassword from "../assets/pages/ForgotPassword"
 const App = () => {
-  $(function () {
-    $(".navbar-toggler").click(function () {
-      $("body").toggleClass("noscroll")
-    })
-  })
-
+  const [isLoggedin, setIsLoggedin] = useState(Boolean(localStorage.getItem("sessionId")))
   return (
     <div>
       <Helmet>
         <script src="../assets/js/owl.carousel.js" type="text/script"></script>
       </Helmet>
       <BrowserRouter>
-        <Header />
+        <Header isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} />
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -40,10 +36,13 @@ const App = () => {
             <Contactpage />
           </Route>
           <Route path="/login">
-            <Loginpage />
+            <Loginpage setIsLoggedin={setIsLoggedin} />
           </Route>
           <Route path="/signup">
             <Signuppage />
+          </Route>
+          <Route path="/forgot-password">
+            <ForgotPassword />
           </Route>
         </Switch>
         <Footer />
