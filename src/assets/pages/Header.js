@@ -20,29 +20,28 @@ const Header = props => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/" data-toggle="collapse" data-target=".navbar-collapse">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <Link className="nav-link" to="/about" data-toggle="collapse" data-target=".navbar-collapse">
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/services">
+                <Link className="nav-link" to="/services" data-toggle="collapse" data-target=".navbar-collapse">
                   Services
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="/contact">
+                <Link className="nav-link" to="/contact" data-toggle="collapse" data-target=".navbar-collapse">
                   Contact
                 </Link>
               </li>
               {props.isLoggedin ? (
                 <li className="nav-item">
-                  {/*<p>Hello {JSON.parse(localStorage.getItem("user")).firstName}</p>*/}
                   <div className="dropdown">
                     <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown">
                       {`Hello ${JSON.parse(localStorage.getItem("user")).firstName}`}
@@ -61,7 +60,7 @@ const Header = props => {
                   </div>
                 </li>
               ) : (
-                <li className="nav-item">
+                <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse">
                   <Link className="nav-link" to="/login">
                     Login
                   </Link>

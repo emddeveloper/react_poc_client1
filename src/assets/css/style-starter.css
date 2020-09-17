@@ -13940,7 +13940,7 @@ button.owl-next {
 }
 
 .w3l-main-slider .banner-view {
-  background: url(../images/1.jpg) no-repeat center;
+  background: url(../images/vroom/1.jpg) no-repeat center;
   background-size: cover;
   min-height: calc(100vh - 50px);
   position: relative;
@@ -13950,17 +13950,17 @@ button.owl-next {
 }
 
 .w3l-main-slider .banner-top1 {
-  background: url(../images/2.jpg) no-repeat center;
+  background: url(../images/vroom/2.jpg) no-repeat center;
   background-size: cover;
 }
 
 .w3l-main-slider .banner-top2 {
-  background: url(../images/3.jpg) no-repeat center;
+  background: url(../images/vroom/3.jpg) no-repeat center;
   background-size: cover;
 }
 
 .w3l-main-slider .banner-top3 {
-  background: url(../images/4.jpg) no-repeat center;
+  background: url(../images/vroom/4.jpg) no-repeat center;
   background-size: cover;
 }
 
@@ -16793,7 +16793,8 @@ button.owl-next {
   display: block;
   margin-bottom: -10px;
 }
-.emd-carousel button.owl-next>span,.emd-carousel button.owl-prev>span {
+.emd-carousel button.owl-next > span,
+.emd-carousel button.owl-prev > span {
   width: 30px;
   height: 30px;
   background: #fffbfba1;
@@ -16801,9 +16802,10 @@ button.owl-next {
   font-size: 25px;
   font-weight: bold;
 }
-.emd-carousel button.owl-next:focus,.emd-carousel button.owl-prev:focus{
+.emd-carousel button.owl-next:focus,
+.emd-carousel button.owl-prev:focus {
   outline: none;
 }
-.progress-bar{
-  height:.3em
+.progress-bar {
+  height: 0.3em;
 }

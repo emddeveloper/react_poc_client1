@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1411d311.chunk.css",
+    "main.js": "/static/js/main.302893e0.chunk.js",
+    "main.js.map": "/static/js/main.302893e0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fc089163.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fc089163.js.map",
+    "static/css/2.828be9a0.chunk.css": "/static/css/2.828be9a0.chunk.css",
+    "static/js/2.c99778d7.chunk.js": "/static/js/2.c99778d7.chunk.js",
+    "static/js/2.c99778d7.chunk.js.map": "/static/js/2.c99778d7.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.414fd2c34c22d454ac749db2130f9d7b.js": "/precache-manifest.414fd2c34c22d454ac749db2130f9d7b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.828be9a0.chunk.css.map": "/static/css/2.828be9a0.chunk.css.map",
+    "static/css/main.1411d311.chunk.css.map": "/static/css/main.1411d311.chunk.css.map",
+    "static/js/2.c99778d7.chunk.js.LICENSE.txt": "/static/js/2.c99778d7.chunk.js.LICENSE.txt",
+    "static/media/style-starter.css": "/static/media/ser-2.c2cb047f.jpg",
+    "static/media/g1.jpg": "/static/media/g1.1784bdcc.jpg",
+    "static/media/g10.jpg": "/static/media/g10.27dfe4ce.jpg",
+    "static/media/g2.jpg": "/static/media/g2.4b735276.jpg",
+    "static/media/g3.jpg": "/static/media/g3.6d5c131e.jpg",
+    "static/media/g5.jpg": "/static/media/g5.af20c466.jpg",
+    "static/media/g6.jpg": "/static/media/g6.2477b220.jpg",
+    "static/media/g7.jpg": "/static/media/g7.aae1cecb.jpg",
+    "static/media/g8.jpg": "/static/media/g8.fa17c3f0.jpg",
+    "static/media/g9.jpg": "/static/media/g9.233271b6.jpg",
+    "static/media/index-1.jpg": "/static/media/index-1.eced6a2f.jpg",
+    "static/media/t1.jpg": "/static/media/t1.cdfbd9ac.jpg",
+    "static/media/t3.jpg": "/static/media/t3.371a21df.jpg",
+    "static/media/t4.jpg": "/static/media/t4.020ce927.jpg",
+    "static/media/t5.jpg": "/static/media/t5.ca8ca270.jpg",
+    "static/media/t7.jpg": "/static/media/t7.b170842e.jpg",
+    "static/media/t8.jpg": "/static/media/t8.3ce61872.jpg",
+    "static/media/vroom-logo.png": "/static/media/vroom-logo.e42ee393.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fc089163.js",
+    "static/css/2.828be9a0.chunk.css",
+    "static/js/2.c99778d7.chunk.js",
+    "static/css/main.1411d311.chunk.css",
+    "static/js/main.302893e0.chunk.js"
+  ]
+}
