@@ -20,23 +20,23 @@ const Header = props => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/" data-toggle="collapse" data-target=".navbar-collapse">
+                <Link className="nav-link" to="/">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about" data-toggle="collapse" data-target=".navbar-collapse">
+                <Link className="nav-link" to="/about">
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/services" data-toggle="collapse" data-target=".navbar-collapse">
+                <Link className="nav-link" to="/services">
                   Services
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link className="nav-link" to="/contact" data-toggle="collapse" data-target=".navbar-collapse">
+              <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse">
+                <Link className="nav-link" to="/contact">
                   Contact
                 </Link>
               </li>
