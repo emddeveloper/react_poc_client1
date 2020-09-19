@@ -1,0 +1,9 @@
+@media (max-width: 767.98px) {
+  .w3l-bootstrap-header a.navbar-brand {
+    max-width: 250px;
+    padding-left: 10px;
+  }
+  .mlogo {
+    width: 120px;
+  }
+}

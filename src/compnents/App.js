@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import "../assets/css/style-starter.css"
+import "../assets/css/media.css"
 import Footer from "../assets/pages/Footer"
 import Header from "../assets/pages/Header"
 import $ from "jquery"
