@@ -2,6 +2,10 @@ import React, { useState } from "react"
 import Axios from "axios"
 import "../css/login.css"
 import { Link, useHistory } from "react-router-dom"
+
+import FacebookLogin from "react-facebook-login"
+import GoogleLogin from "react-google-login"
+
 export default function Signuppage(props) {
   const history = useHistory()
   const [email, setEmail] = useState()
@@ -34,6 +38,12 @@ export default function Signuppage(props) {
       console.log("Something went wrong" + e)
     }
   }
+  const responseFacebook = response => {
+    console.log(JSON.stringify(response))
+  }
+  const responseGoogle = response => {
+    console.log(JSON.stringify(response))
+  }
   return (
     <>
       <div className="container pt-5 emd-login">
@@ -42,6 +52,11 @@ export default function Signuppage(props) {
             <div className="card card-signin my-5">
               <div className="card-body">
                 <h5 className="card-title text-center">Sign up</h5>
+                <div className="text-center mb-4">
+                  <FacebookLogin appId={process.env.REACT_APP_FB_API_ID} autoLoad={false} fields="name,email,picture" callback={responseFacebook} cssClass="btn btn-mb btn-facebook text-uppercase mb-3" icon="fa-facebook" textButton="Sign up with Facebook" />
+                  <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} buttonText="Sign up with Google" onSuccess={responseGoogle} onFailure={responseGoogle} cookiePolicy={"single_host_origin"} className="btn btn-md btn-google text-uppercase" icon="true" />
+                </div>
+                <div className="separator mb-4">Or</div>
                 <form className="form-signin" onSubmit={handleSignup}>
                   <div className="form-label-group">
                     <input onChange={e => setFirstName(e.target.value)} type="text" id="firstname" className="form-control" placeholder="Firstname" required autoFocus />
@@ -86,13 +101,6 @@ export default function Signuppage(props) {
                       Already registed? <Link to="/login">Login Here</Link>
                     </p>
                   </div>
-                  <hr className="my-4" />
-                  <button className="btn btn-lg btn-google btn-block text-uppercase" type="submit">
-                    <i className="fa fa-google mr-2"></i> Sign up with Google
-                  </button>
-                  <button className="btn btn-lg btn-facebook btn-block text-uppercase" type="submit">
-                    <i className="fa fa-facebook-f mr-2"></i> Sign up with Facebook
-                  </button>
                 </form>
               </div>
             </div>
