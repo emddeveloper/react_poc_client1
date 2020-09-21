@@ -33,12 +33,49 @@ export default function Loginpage(props) {
       console.log("Something went wrong" + e)
     }
   }
+  const [fbdata, setfbdata] = useState({})
+  const socialParams = {
+    emailId: null,
+    gender: null,
+    mobileNo: null,
+    name: null,
+    password: null,
+    socialProfilePic: null,
+    userCategory: "USER",
+    userKey: null,
+    userType: "SOCIAL"
+  }
   const responseFacebook = response => {
     console.log(JSON.stringify(response))
+    setfbdata(response)
+    socialParams.emailId = response.email
+    socialParams.name = response.name
+    socialParams.userKey = response.userID
+    socialParams.socialProfilePic = response.picture.data.url
+    Axios.post("https://nxv-user-management-app.herokuapp.com/manageuserapp/v1.0/api/social/login-with-social", {
+      ...socialParams
+    }).then(
+      response => {
+        if (response.data.message == "Success") {
+          localStorage.clear()
+          localStorage.setItem("sessionId", response.data.response.sessionId)
+          localStorage.setItem("user", JSON.stringify(response.data.response))
+          console.log(response.data)
+          props.setIsLoggedin(true)
+          history.push("/")
+        } else {
+          console.log("Incorrect Username/Password")
+        }
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
   const responseGoogle = response => {
     console.log(JSON.stringify(response))
   }
+
   return (
     <>
       <div className="container pt-5 emd-login">

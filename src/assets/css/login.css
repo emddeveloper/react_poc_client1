@@ -129,8 +129,9 @@
   font-size: 20px;
 }
 .emd-login .fa.fa-facebook {
-  margin-right: 30px;
+  margin-right: 25px;
   font-size: 20px;
+  margin-left: 5px;
 }
 .separator {
   display: flex;

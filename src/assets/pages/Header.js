@@ -44,7 +44,7 @@ const Header = props => {
                 <li className="nav-item">
                   <div className="dropdown">
                     <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown">
-                      {`Hello ${JSON.parse(localStorage.getItem("user")).firstName}`}
+                      {`Hello ${JSON.parse(localStorage.getItem("user")).name}`}
                     </a>
                     <div className="dropdown-menu">
                       <a href="#" className="dropdown-item">
