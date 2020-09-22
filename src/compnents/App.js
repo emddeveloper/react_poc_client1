@@ -14,7 +14,13 @@ import Contactpage from "../assets/pages/Contactpage"
 import Loginpage from "../assets/pages/Loginpage"
 import Signuppage from "../assets/pages/Signuppage"
 import ForgotPassword from "../assets/pages/ForgotPassword"
+
+import { useSelector, useDispatch } from "react-redux"
+import { increment, decrement } from "../store/actions"
+
 const App = () => {
+  const dispatch = useDispatch()
+  const counter = useSelector(state => state.counterReducer)
   const [isLoggedin, setIsLoggedin] = useState(Boolean(localStorage.getItem("sessionId")))
   return (
     <div>
@@ -22,7 +28,11 @@ const App = () => {
         <script src="../assets/js/owl.carousel.js" type="text/script"></script>
       </Helmet>
       <BrowserRouter>
+        {/* {<div>Counter {counter}</div>
+        <button onClick={() => dispatch(increment())}>+</button>
+        <button onClick={() => dispatch(decrement())}>-</button>} */}
         <Header isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} />
+
         <Switch>
           <Route path="/" exact>
             <Home />
