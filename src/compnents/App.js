@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "../assets/css/style-starter.css"
 import "../assets/css/media.css"
 import Footer from "../assets/pages/Footer"
@@ -14,12 +14,18 @@ import Contactpage from "../assets/pages/Contactpage"
 import Loginpage from "../assets/pages/Loginpage"
 import Signuppage from "../assets/pages/Signuppage"
 import ForgotPassword from "../assets/pages/ForgotPassword"
-
+//React redux
 import { useSelector, useDispatch } from "react-redux"
-import { increment, decrement } from "../store/actions"
+import { getuser } from "../store/actions"
 
 const App = () => {
   const dispatch = useDispatch()
+  useEffect(() => {
+    if (Boolean(localStorage.getItem("sessionId"))) {
+      dispatch(getuser(localStorage.getItem("userKey")))
+    }
+  }, [])
+
   const counter = useSelector(state => state.counterReducer)
   const [isLoggedin, setIsLoggedin] = useState(Boolean(localStorage.getItem("sessionId")))
   return (

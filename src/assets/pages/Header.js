@@ -1,11 +1,17 @@
 import React from "react"
 import { Link } from "react-router-dom"
+//react redux
+import { useSelector, useDispatch } from "react-redux"
+import { isLoggedout } from "../../store/actions"
 const Header = props => {
   function handleLogout() {
     props.setIsLoggedin(false)
+    dispatch(isLoggedout())
     localStorage.removeItem("sessionId")
-    localStorage.removeItem("user")
+    localStorage.removeItem("userKey")
   }
+  const dispatch = useDispatch()
+  const _userdetails = useSelector(state => state.userReducer)
   return (
     <section className="w3l-bootstrap-header">
       <nav className="navbar navbar-expand-lg navbar-light py-lg-3">
@@ -40,11 +46,11 @@ const Header = props => {
                   Contact
                 </Link>
               </li>
-              {props.isLoggedin ? (
+              {_userdetails.isLoggedin ? (
                 <li className="nav-item">
                   <div className="dropdown">
                     <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown">
-                      {`Hello ${JSON.parse(localStorage.getItem("user")).name}`}
+                      {`Welcome ${_userdetails.name}`}
                     </a>
                     <div className="dropdown-menu">
                       <a href="#" className="dropdown-item">

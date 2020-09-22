@@ -2,11 +2,16 @@ import React, { useState } from "react"
 import Axios from "axios"
 import "../css/login.css"
 import { Link, useHistory } from "react-router-dom"
+import API from "../../api"
 
+//Social login
 import FacebookLogin from "react-facebook-login"
 import GoogleLogin from "react-google-login"
-
+//React-redux
+import { useSelector, useDispatch } from "react-redux"
+import { user, callWebLogin } from "../../store/actions"
 export default function Loginpage(props) {
+  const dispatch = useDispatch()
   const history = useHistory()
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
@@ -17,21 +22,7 @@ export default function Loginpage(props) {
       password: password
     }
     e.preventDefault()
-    try {
-      const response = await Axios.post("https://cmsappapi.herokuapp.com/cmsapp/api/login", params)
-      if (response.data.message == "Success") {
-        localStorage.clear()
-        localStorage.setItem("sessionId", response.data.response.sessionId)
-        localStorage.setItem("user", JSON.stringify(response.data.response))
-        console.log(response.data)
-        props.setIsLoggedin(true)
-        history.push("/")
-      } else {
-        console.log("Incorrect Username/Password")
-      }
-    } catch (e) {
-      console.log("Something went wrong" + e)
-    }
+    dispatch(callWebLogin(params))
   }
   const [fbdata, setfbdata] = useState({})
   const socialParams = {
