@@ -10,7 +10,20 @@ import GoogleLogin from "react-google-login"
 //React-redux
 import { useSelector, useDispatch } from "react-redux"
 import { isLoggedin } from "../../store/actions"
+//Toaster
+import { ToastContainer, toast } from "react-toastify"
 export default function Loginpage(props) {
+  //Notification toaster
+  const loginSuccessNotify = () =>
+    toast.success("Successfully logged in", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    })
   const dispatch = useDispatch()
   const history = useHistory()
   const {} = useSelector(state => state.userReducer)
@@ -32,6 +45,7 @@ export default function Loginpage(props) {
           props.setIsLoggedin(true)
           history.push("/")
           dispatch(isLoggedin(response.data.response))
+          loginSuccessNotify()
         } else {
           console.log("Incorrect Username/Password")
         }
@@ -60,17 +74,18 @@ export default function Loginpage(props) {
     socialParams.name = response.name
     socialParams.userKey = response.userID
     socialParams.socialProfilePic = response.picture.data.url
-    Axios.post("https://nxv-user-management-app.herokuapp.com/manageuserapp/v1.0/api/social/login-with-social", {
+    API.post("social/login-with-social", {
       ...socialParams
     }).then(
       response => {
         if (response.data.message == "Success") {
           localStorage.clear()
           localStorage.setItem("sessionId", response.data.response.sessionId)
-          localStorage.setItem("user", JSON.stringify(response.data.response))
-          console.log(response.data)
+          localStorage.setItem("userKey", response.data.response.userKey)
           props.setIsLoggedin(true)
           history.push("/")
+          dispatch(isLoggedin(response.data.response))
+          loginSuccessNotify()
         } else {
           console.log("Incorrect Username/Password")
         }
@@ -82,6 +97,31 @@ export default function Loginpage(props) {
   }
   const responseGoogle = response => {
     console.log(JSON.stringify(response))
+    setfbdata(response)
+    socialParams.emailId = response.profileObj.email
+    socialParams.name = response.profileObj.name
+    socialParams.userKey = response.profileObj.googleId
+    socialParams.socialProfilePic = response.profileObj.imageUrl
+    API.post("social/login-with-social", {
+      ...socialParams
+    }).then(
+      response => {
+        if (response.data.message == "Success") {
+          localStorage.clear()
+          localStorage.setItem("sessionId", response.data.response.sessionId)
+          localStorage.setItem("userKey", response.data.response.userKey)
+          props.setIsLoggedin(true)
+          history.push("/")
+          dispatch(isLoggedin(response.data.response))
+          loginSuccessNotify()
+        } else {
+          console.log("Incorrect Username/Password")
+        }
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   return (

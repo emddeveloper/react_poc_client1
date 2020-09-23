@@ -7375,6 +7375,7 @@ input[type="button"].btn-block {
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
+    height: 41px !important;
   }
   .navbar-expand-lg .navbar-toggler {
     display: none;
@@ -16809,4 +16810,10 @@ button.owl-next {
 }
 .mlogo {
   width: 150px;
+}
+.header-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
 }

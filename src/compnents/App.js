@@ -17,8 +17,12 @@ import ForgotPassword from "../assets/pages/ForgotPassword"
 //React redux
 import { useSelector, useDispatch } from "react-redux"
 import { getuser } from "../store/actions"
+//Toaster
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const App = () => {
+  //Toaster configure
   const dispatch = useDispatch()
   useEffect(() => {
     if (Boolean(localStorage.getItem("sessionId"))) {
@@ -30,6 +34,7 @@ const App = () => {
   const history = useHistory()
   return (
     <div>
+      <ToastContainer />
       <Helmet>
         <script src="../assets/js/owl.carousel.js" type="text/script"></script>
       </Helmet>

@@ -49,8 +49,9 @@ const Header = props => {
               {_userdetails.isLoggedin ? (
                 <li className="nav-item">
                   <div className="dropdown">
-                    <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown">
-                      {`Welcome ${_userdetails.name}`}
+                    <a href="#" className="dropdown-toggle nav-link p-0" data-toggle="dropdown">
+                      {_userdetails.profilePic != "" ? <img src={_userdetails.profilePic} alt="profile pic" className="header-profile-img" /> : <img src={require("../images/vroom/noprofile.jpg")} alt="profile pic" className="header-profile-img" />}
+                      {_userdetails.name}
                     </a>
                     <div className="dropdown-menu">
                       <a href="#" className="dropdown-item">
