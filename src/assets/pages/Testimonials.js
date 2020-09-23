@@ -18,7 +18,7 @@ export default function Testimonials(props) {
                     <div className="item-top">
                       <div className="item text-center">
                         <div className="imgTitle">
-                          <img src="assets/images/c1.jpg" className="img-responsive" alt="" />
+                          <img src={require("../images/c1.jpg")} className="img-responsive" alt="" />
                         </div>
                         <h6 className="mt-3">Steve Smith</h6>
                         <p className="">Client</p>
@@ -33,7 +33,7 @@ export default function Testimonials(props) {
                     <div className="item-top">
                       <div className="item text-center">
                         <div className="imgTitle">
-                          <img src="assets/images/c2.jpg" className="img-responsive" alt="" />
+                          <img src={require("../images/c2.jpg")} className="img-responsive" alt="" />
                         </div>
                         <h6 className="mt-3">Jessey Rider</h6>
                         <p className="">Worker</p>
@@ -48,7 +48,7 @@ export default function Testimonials(props) {
                     <div className="item-top">
                       <div className="item text-center">
                         <div className="imgTitle">
-                          <img src="assets/images/c3.jpg" className="img-responsive" alt="" />
+                          <img src={require("../images/c3.jpg")} className="img-responsive" alt="" />
                         </div>
                         <h6 className="mt-3">Mark Stoins</h6>
                         <p className="">Engineer</p>

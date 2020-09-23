@@ -1,5 +1,5 @@
 import API from "../../api"
-
+import { push } from "react-router-redux"
 import { useHistory } from "react-router-dom"
 //const history = useHistory()
 export const increment = () => {
@@ -45,30 +45,5 @@ export const getuser = userKey => {
 }
 //SIGN IN POST
 export const callWebLogin = params => {
-  return dispatch => {
-    API.post(`login`, params)
-      .then(response => {
-        if (response.data.message == "Success") {
-          localStorage.clear()
-          localStorage.setItem("sessionId", response.data.response.sessionId)
-          localStorage.setItem("userKey", response.data.response.userKey)
-          //props.setIsLoggedin(true)
-          //dispatch(user(response.data.response))
-          dispatch({
-            type: "USER_DETAILS",
-            payload: response.data.response
-          })
-          dispatch({
-            type: "IS_LOGGEDIN",
-            payload: true
-          })
-          //history.push("/")
-        } else {
-          console.log("Incorrect Username/Password")
-        }
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
+  return dispatch => {}
 }

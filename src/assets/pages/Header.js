@@ -66,7 +66,7 @@ const Header = props => {
                   </div>
                 </li>
               ) : (
-                <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse">
+                <li className="nav-item">
                   <Link className="nav-link" to="/login">
                     Login
                   </Link>

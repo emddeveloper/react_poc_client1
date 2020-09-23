@@ -6,7 +6,7 @@ import Header from "../assets/pages/Header"
 import $ from "jquery"
 import { Helmet } from "react-helmet"
 import Home from "../assets/pages/Home"
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { BrowserRouter, Switch, Route, useHistory, Redirect } from "react-router-dom"
 //router pages
 import Aboutpage from "../assets/pages/Aboutpage"
 import Servicepage from "../assets/pages/Servicepage"
@@ -25,9 +25,9 @@ const App = () => {
       dispatch(getuser(localStorage.getItem("userKey")))
     }
   }, [])
-
-  const counter = useSelector(state => state.counterReducer)
+  const { _userDetails } = useSelector(state => state.userReducer)
   const [isLoggedin, setIsLoggedin] = useState(Boolean(localStorage.getItem("sessionId")))
+  const history = useHistory()
   return (
     <div>
       <Helmet>
@@ -52,9 +52,7 @@ const App = () => {
           <Route path="/contact">
             <Contactpage />
           </Route>
-          <Route path="/login">
-            <Loginpage setIsLoggedin={setIsLoggedin} />
-          </Route>
+          <Route path="/login">{!isLoggedin ? <Loginpage setIsLoggedin={setIsLoggedin} /> : <Redirect to="/" />}</Route>
           <Route path="/signup">
             <Signuppage />
           </Route>

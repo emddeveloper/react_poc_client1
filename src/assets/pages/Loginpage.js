@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Axios from "axios"
 import "../css/login.css"
 import { Link, useHistory } from "react-router-dom"
@@ -9,21 +9,38 @@ import FacebookLogin from "react-facebook-login"
 import GoogleLogin from "react-google-login"
 //React-redux
 import { useSelector, useDispatch } from "react-redux"
-import { user, callWebLogin } from "../../store/actions"
+import { isLoggedin } from "../../store/actions"
 export default function Loginpage(props) {
   const dispatch = useDispatch()
   const history = useHistory()
+  const {} = useSelector(state => state.userReducer)
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
-
+  const userDetails = useSelector(state => state.userReducer)
   async function handleLogin(e) {
     const params = {
       email: username,
       password: password
     }
     e.preventDefault()
-    dispatch(callWebLogin(params))
+    API.post(`login`, params)
+      .then(response => {
+        if (response.data.message == "Success") {
+          localStorage.clear()
+          localStorage.setItem("sessionId", response.data.response.sessionId)
+          localStorage.setItem("userKey", response.data.response.userKey)
+          props.setIsLoggedin(true)
+          history.push("/")
+          dispatch(isLoggedin(response.data.response))
+        } else {
+          console.log("Incorrect Username/Password")
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
+
   const [fbdata, setfbdata] = useState({})
   const socialParams = {
     emailId: null,
@@ -69,6 +86,7 @@ export default function Loginpage(props) {
 
   return (
     <>
+      {}
       <div className="container pt-5 emd-login">
         <div className="row">
           <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
